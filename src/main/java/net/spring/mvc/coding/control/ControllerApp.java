@@ -1,6 +1,6 @@
 package net.spring.mvc.coding.control;
 
-import net.spring.mvc.coding.model.Customer;
+import net.spring.mvc.coding.model.Contact;
 import net.spring.mvc.coding.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,51 +15,57 @@ import java.util.List;
 
 @Controller
 public class ControllerApp {
-    @Autowired
+
     private CustomerRepository customerRepository;
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @Autowired
+    public ControllerApp(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     private String start() {
         return "home-app";
     }
-    @RequestMapping(value = "/home",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     private String home() {
         return "home-app";
     }
-    @RequestMapping(value = "/views",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/views", method = RequestMethod.GET)
     private String viewsCustomer(Model model) {
-        List<Customer> customerList = customerRepository.views();
-        model.addAttribute("customerList" , customerList);
+        List<Contact> contactList = customerRepository.views();
+        model.addAttribute("customerList", contactList);
         return "views-app";
     }
 
-    @RequestMapping(value = "/editeById/{id}",method = RequestMethod.GET)
-    private String editeCustomer(Model model , @PathVariable Long id) {
-        Customer customer = (Customer) customerRepository.view(id);
-        model.addAttribute("customer" , customer);
+    @RequestMapping(value = "/edite/{id}", method = RequestMethod.GET)
+    private String editeCustomer(Model model, @PathVariable Long id) {
+        Contact contact = (Contact) customerRepository.view(id);
+        model.addAttribute("customer", contact);
         return "edite-app";
     }
-    @RequestMapping(value = "/deleteById/{id}",method = RequestMethod.GET)
-    private String deleteCustomer(Model model , @PathVariable Long id) {
-        HashMap<String,Long> response = (HashMap<String,Long>) customerRepository.delete(id);
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    private String deleteCustomer(@PathVariable Long id) {
+        HashMap<String, Long> response = (HashMap<String, Long>) customerRepository.delete(id);
+        return "redirect:/views";
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    private String createCustomer(@ModelAttribute Contact contact) {
+        HashMap<String, Contact> response = customerRepository.create(contact);
         System.out.println(response);
         return "redirect:/views";
     }
 
-    @RequestMapping(value = "/create" , method = RequestMethod.POST)
-    private String createCustomer(@ModelAttribute Customer customer) {
-        HashMap<String,Customer> response = customerRepository.create(customer);
+    @RequestMapping(value = "/edite", method = RequestMethod.POST)
+    private String editeCustomer(@ModelAttribute Contact contact) {
+        HashMap<String, Contact> response = customerRepository.edite(contact);
         System.out.println(response);
         return "redirect:/views";
     }
-    @RequestMapping(value = "/edite" , method = RequestMethod.POST)
-    private String editeCustomer(@ModelAttribute Customer customer) {
-        HashMap<String,Customer> response = customerRepository.edite(customer);
-        System.out.println(response);
-        return "redirect:/views";
-    }
-
-
 
 
 }

@@ -14,13 +14,13 @@
 <div class="container">
     <ul class="nav nav-tabs" id="">
         <li class="nav-item">
-            <a class="nav-link active" href="home">Systems store the Customer</a>
+            <a class="nav-link active" href="home">Systems store the Customer's contact</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="views">Views customer</a>
+            <a class="nav-link" href="views">Views Customer's contact</a>
         </li>
     </ul>
 </div>
@@ -28,7 +28,7 @@
 <div class="container mt-4" style="max-width: 600px;">
     <form class="form-control" action="create" method="post" >
         <div class="container mt-4 ">
-            <p class="text-center mt-4 p-3 rounded" style="font-size: 30px;">Customer Form</p>
+            <p class="text-center mt-4 p-3 rounded" style="font-size: 30px;">Customer's contact Form</p>
         </div>
         <div class="row">
 

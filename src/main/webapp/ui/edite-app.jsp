@@ -14,13 +14,13 @@
 <div class="container">
     <ul class="nav nav-tabs" id="">
         <li class="nav-item">
-            <a class="nav-link active" href="/jdbc_crud_mvc_core_war/">Systems store the Customer</a>
+            <a class="nav-link active" href="">Systems store the Customer</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/jdbc_crud_mvc_core_war/home">Home</a>
+            <a class="nav-link" href="home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/jdbc_crud_mvc_core_war/views">Views customer</a>
+            <a class="nav-link" href="views">Views customer</a>
         </li>
     </ul>
 </div>

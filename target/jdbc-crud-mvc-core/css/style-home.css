@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../font/Quicksand-Medium.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand;
+
+}

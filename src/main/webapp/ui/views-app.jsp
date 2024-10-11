@@ -25,9 +25,9 @@
     </ul>
 </div>
 
-<div class="container mt-4" style="max-width: 960px">
+<div class="container mt-4" style="max-width: 1300px">
     <div class="row">
-        <table class="table table-striped">
+        <table class="table table-hover">
 
             <thead>
             <tr>
@@ -49,8 +49,8 @@
                     <td>${customer.email}</td>
                     <td>${customer.address}</td>
                     <td class="text-center">
-                        <a href="editeById/${customer.id}" class="btn btn-warning btn-xs"> Edit</a>
-                        <a href="deleteById/${customer.id}" class="btn btn-danger btn-xs"> Delete</a>
+                        <a href="edite/${customer.id}" class="btn btn-warning btn-xs"> Edit</a>
+                        <a href="delete/${customer.id}" class="btn btn-danger btn-xs"> Delete</a>
                     </td>
                 </tr>
             </c:forEach>
